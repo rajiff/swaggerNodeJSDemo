@@ -1,0 +1,75 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: SwaggerNodeJSDemo
+# during dev, should point to your local machine
+host: localhost:3000
+# basePath prefixes all resource paths
+basePath: /api/v1
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  # - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /employees:
+    post:
+      description: Create a new employee resource object
+      responses:
+        "200":
+          description: Success
+    get:
+      description: Returns Employees in the system, paginated
+      operationId: employees
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Employees"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /employees/{empid}:
+    get:
+      description: Return a specific employee, specified in the URI
+      operationId: Get a Employee
+      parameters:
+        - name: empid
+          in: path
+          description: Id of the employee to fetch
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Employee"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+# complex objects have schema definitions
+definitions:
+  Employee:
+    required:
+      - empid
+    properties:
+      empid:
+        type: string
+  Employees:
+    type: array
+    items:
+      $ref: "#/definitions/Employee"
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

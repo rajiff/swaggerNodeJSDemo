@@ -1,0 +1,25 @@
+{
+  "name": "SwaggerNodeJSDemo",
+  "version": "1.0.0",
+  "description": "Demo app for showing integrating swagger as a UI middleware",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "api-test": "swagger project test",
+    "test": "mocha test/**/*test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "swagger-ui-express": "^2.0.13",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "supertest": "^3.0.0",
+    "z-schema": "^3.19.0"
+  }
+}
