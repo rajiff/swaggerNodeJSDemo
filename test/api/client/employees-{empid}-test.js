@@ -54,43 +54,23 @@ var supertest = require('supertest');
 var api = supertest('http://localhost:3000'); // supertest init;
 var expect = chai.expect;
 
-describe('/employees', function() {
-  describe('post', function() {
-    it('should respond with 200 Success', function(done) {
-      api.post('/api/v1/employees')
-      .set('Content-Type', 'application/json')
-      .send({
-      })
-      .expect(200)
-      .end(function(err, res) {
-        if (err) return done(err);
-
-        expect(res.body).to.equal(null); // non-json response or no schema
-        done();
-      });
-    });
-
-  });
-
+describe('/employees/{empid}', function() {
   describe('get', function() {
     it('should respond with 200 Success', function(done) {
       /*eslint-disable*/
       var schema = {
-        "type": "array",
-        "items": {
-          "required": [
-            "empid"
-          ],
-          "properties": {
-            "empid": {
-              "type": "string"
-            }
+        "required": [
+          "empid"
+        ],
+        "properties": {
+          "empid": {
+            "type": "string"
           }
         }
       };
 
       /*eslint-enable*/
-      api.get('/api/v1/employees')
+      api.get('/api/v1/employees/{empid PARAM GOES HERE}')
       .set('Content-Type', 'application/json')
       .expect(200)
       .end(function(err, res) {
@@ -115,7 +95,7 @@ describe('/employees', function() {
       };
 
       /*eslint-enable*/
-      api.get('/api/v1/employees')
+      api.get('/api/v1/employees/{empid PARAM GOES HERE}')
       .set('Content-Type', 'application/json')
       .expect('DEFAULT RESPONSE CODE HERE')
       .end(function(err, res) {

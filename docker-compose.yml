@@ -1,0 +1,11 @@
+version: '2'
+services:
+
+  swaggernodejsdemo:
+    image: SwaggerNodeJSDemo:1.0.0
+    build: ./
+    restart: always
+    environment:
+      PORT: 3000
+    entrypoint:
+      - "yarn start"
