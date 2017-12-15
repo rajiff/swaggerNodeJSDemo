@@ -31,4 +31,4 @@ app.use('/api/v1/docs',
   swaggerUI.setup(swaggerDocument, swaggerOptions)
 );
 
-app.listen((process.env.PORT || 3000));
+module.exports = app;

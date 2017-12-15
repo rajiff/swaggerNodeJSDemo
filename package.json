@@ -4,7 +4,7 @@
   "description": "Demo app for showing integrating swagger as a UI middleware",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
+    "start": "node bin/www",
     "api-test": "swagger project test",
     "test": "mocha test/**/*test.js"
   },

@@ -51,7 +51,7 @@ customFormats(ZSchema);
 
 var validator = new ZSchema({});
 var supertest = require('supertest');
-var api = supertest('http://localhost:3000'); // supertest init;
+var api = supertest(require('../../../app'));
 var expect = chai.expect;
 
 describe('/employees', function() {
@@ -117,7 +117,7 @@ describe('/employees', function() {
       /*eslint-enable*/
       api.get('/api/v1/employees')
       .set('Content-Type', 'application/json')
-      .expect('DEFAULT RESPONSE CODE HERE')
+      .expect('[{"id":1000,"name":"Basav"}]')
       .end(function(err, res) {
         if (err) return done(err);
 
