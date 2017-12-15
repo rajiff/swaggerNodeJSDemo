@@ -1,8 +1,7 @@
 FROM mhart/alpine-node:8.9
 
-RUN apk update\
-    && npm install yarn -g \
-    && npm install mocha -g
+RUN apk update \
+    && npm install yarn mocha swagger -g
 
 RUN mkdir -p /usr/app
 WORKDIR /usr/app
