@@ -51,7 +51,7 @@ customFormats(ZSchema);
 
 var validator = new ZSchema({});
 var supertest = require('supertest');
-var api = supertest(require('../../../app'));
+var api = supertest(require('../../../app')); // supertest init;
 var expect = chai.expect;
 
 describe('/employees', function() {
@@ -65,7 +65,7 @@ describe('/employees', function() {
       .end(function(err, res) {
         if (err) return done(err);
 
-        expect(res.body).to.equal(null); // non-json response or no schema
+        expect(res.body).not.equal(null); // non-json response or no schema
         done();
       });
     });
@@ -79,10 +79,10 @@ describe('/employees', function() {
         "type": "array",
         "items": {
           "required": [
-            "empid"
+            "empId"
           ],
           "properties": {
-            "empid": {
+            "empId": {
               "type": "string"
             }
           }
@@ -93,31 +93,6 @@ describe('/employees', function() {
       api.get('/api/v1/employees')
       .set('Content-Type', 'application/json')
       .expect(200)
-      .end(function(err, res) {
-        if (err) return done(err);
-
-        expect(validator.validate(res.body, schema)).to.be.true;
-        done();
-      });
-    });
-
-    it('should respond with default Error', function(done) {
-      /*eslint-disable*/
-      var schema = {
-        "required": [
-          "message"
-        ],
-        "properties": {
-          "message": {
-            "type": "string"
-          }
-        }
-      };
-
-      /*eslint-enable*/
-      api.get('/api/v1/employees')
-      .set('Content-Type', 'application/json')
-      .expect('[{"id":1000,"name":"Basav"}]')
       .end(function(err, res) {
         if (err) return done(err);
 

@@ -31,10 +31,6 @@ paths:
           description: Success
           schema:
             $ref: "#/definitions/Employees"
-        default:
-          description: Error
-          schema:
-            $ref: "#/definitions/ErrorResponse"
   /employees/{empid}:
     get:
       description: Return a specific employee, specified in the URI
@@ -50,18 +46,14 @@ paths:
           description: Success
           schema:
             $ref: "#/definitions/Employee"
-        default:
-          description: Error
-          schema:
-            $ref: "#/definitions/ErrorResponse"
 
 # complex objects have schema definitions
 definitions:
   Employee:
     required:
-      - empid
+      - empId
     properties:
-      empid:
+      empId:
         type: string
   Employees:
     type: array
