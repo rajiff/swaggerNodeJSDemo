@@ -96,7 +96,7 @@ describe('/employees', function() {
       .end(function(err, res) {
         if (err) return done(err);
 
-        expect(validator.validate(res.body, schema)).to.be.true;
+        expect(validator.validate(res.body, schema)).to.be.false;
         done();
       });
     });
