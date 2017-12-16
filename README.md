@@ -1,6 +1,6 @@
 ## Swagger Demo with Node.js
 
-[![Build Status](https://travis-ci.org/rajiff/swaggerNodeJSDemo.svg?branch=master)](https://travis-ci.org/rajiff/swaggerNodeJSDemo)
+[![Build Status](https://travis-ci.org/rajiff/swaggerNodeJSDemo.svg?branch=master)](https://travis-ci.org/rajiff/swaggerNodeJSDemo) [![CircleCI](https://circleci.com/gh/rajiff/swaggerNodeJSDemo.svg?style=svg)](https://circleci.com/gh/rajiff/swaggerNodeJSDemo)
 
 ### Reference
 - [Swagger YML reference](https://swagger.io/docs/specification/2-0/basic-structure/)
