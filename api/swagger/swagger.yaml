@@ -17,6 +17,14 @@ consumes:
 produces:
   - application/json
 paths:
+  /:
+    get:
+      description: root path
+      responses:
+        "404":
+          description: Success
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /employees:
     post:
       description: Create a new employee resource object
