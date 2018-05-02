@@ -5,24 +5,29 @@
   "main": "index.js",
   "scripts": {
     "start": "node bin/www",
-    "api-test": "swagger project test",
-    "test": "mocha test/**/*test.js"
+    "swagger": "./node_modules/.bin/swagger",
+    "api-edit": "./node_modules/.bin/swagger project edit",
+    "api-test": "./node_modules/.bin/swagger project test",
+    "test": "./node_modules/.bin/mocha test/**/*test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
+    "log4js": "^2.5.3",
     "morgan": "^1.9.0",
-    "swagger-ui-express": "^2.0.13",
+    "swagger-ui-express": "^3.0.8",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "dotenv": "^5.0.1",
+    "mocha": "^5.1.1",
+    "request": "^2.85.0",
     "supertest": "^3.0.0",
-    "z-schema": "^3.19.0",
-    "request": "^2.58.0",
-    "mocha": "^2.2.5",
-    "dotenv": "^1.2.0"
+    "swagger": "^0.7.5",
+    "swagger-editor": "^3.5.4",
+    "z-schema": "^3.20.0"
   }
 }

@@ -13,7 +13,7 @@ const swaggerDocument = YAML.load('./api/swagger/swagger.yaml');
 
 let app = express();
 
-// Configure morgan to log your API requests, with a standard date & time format
+// Configure morgan to log your requests, with a standard date & time format
 morgan.token('time', (req, res) => new Date().toISOString());
 app.use(morgan('[:time] :remote-addr :method :url :status :res[content-length] :response-time ms'));
 
@@ -21,14 +21,11 @@ app.use(morgan('[:time] :remote-addr :method :url :status :res[content-length] :
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Mount the APIs
+// Mount the APIs specific to version
 app.use('/api/v1', require('./api/v1'));
 
-// Mount the SwaggerUI  Middleware
+// Mount the SwaggerUI  middleware pipeline to host API documentation
 let swaggerOptions = { explorer: false };
-app.use('/api/v1/docs',
-  swaggerUI.serve,
-  swaggerUI.setup(swaggerDocument, swaggerOptions)
-);
+app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument, swaggerOptions));
 
 module.exports = app;
